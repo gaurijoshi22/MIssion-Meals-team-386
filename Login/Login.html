@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!---Coding By CoderGirl | www.codinglabweb.com--->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Registration Form | CoderGirl</title>
+  <!---Custom CSS File--->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Custom CSS styles */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login.form {
+      text-align: center;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="login form">
+      <header>Login</header>
+      <form action="#">
+        <input type="text" placeholder="Enter your email">
+        <input type="password" placeholder="Enter your password">
+        <div class="center-align">
+          <label for="userType">Login as:</label>
+          <select id="userType">
+            <option value="ngo">NGO</option>
+            <option value="donor">Donor</option>
+            <option value="admim">Admin</option>
+          </select>
+        </div>
+        <input type="button" class="button" value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+         <label for="check">Signup</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+
