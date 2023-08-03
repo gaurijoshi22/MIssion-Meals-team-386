@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Two-Column Page</title>
+  <!-- Add your CSS styles here -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding: 20px;
+    }
+    .dashboard-column {
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      padding: 10px;
+    }
+    .dashboard-link {
+      display: block;
+      width: max-content;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .dashboard-link:hover {
+      color: #007bff;
+    }
+    .data-container {
+      background-color: #f1f1f1;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+      min-height: 100vh;
+    }
+    /* Navbar styles */
+    .navbar {
+      background-color: #050505;
+      color: #fff;
+      padding: 10px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-links li {
+      margin-right: 20px;
+    }
+    .navbar-links li:last-child {
+      margin-right: 0;
+    }
+    .navbar-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar-links li a:hover {
+      color: #f8f9fa;
+    }
+    .logo img {
+      height: 60px; /* Set the height of the logo */
+    }
+    .row {
+        width: 300px;
+
+    }
+  </style>
+  <link rel="stylesheet" href="eventStyle.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="./logo.png" alt="">
+    </div>
+    <ul class="navbar-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">User Profile</a></li>
+    </ul>
+  </div>
+
+  <div class="container1">
+    <div class="row">
+      <!-- Column 1 -->
+      <div class="col-md-3 dashboard-column">
+        <h2>Dashboard</h2>
+        <a href="donate.html" class="dashboard-link">Donate Food</a>
+        <a href="a.html" class="dashboard-link">Your Donations</a>
+        <a href="map.html" class="dashboard-link">Ngo Map</a>
+        <a href="leaderboard.html" class="dashboard-link">Make Donation</a>
+
+        <!-- Add more dashboard options as needed -->
+      </div>
+      </div>
+      </div>
+
+      <!-- Column 2 -->
+      <body>
+        <div class="container">
+            <h1>Schedule Charity Event</h1>
+            <form action="#" method="post">
+                <label for="eventTitle">Event Title:</label>
+                <input type="text" id="eventTitle" name="eventTitle" required>
+                
+                <label for="eventDate">Event Date:</label>
+                <input type="date" id="eventDate" name="eventDate" required>
+                
+                <label for="eventTime">Event Time:</label>
+                <input type="time" id="eventTime" name="eventTime" required>
+                
+                <label for="contactName">Contact Name:</label>
+                <input type="text" id="contactName" name="contactName" required>
+                
+                <label for="contactEmail">Contact Email:</label>
+                <input type="email" id="contactEmail" name="contactEmail" required>
+                
+                <label for="eventDescription">Event Description:</label>
+                <textarea id="eventDescription" name="eventDescription" required></textarea>
+                
+                <button type="submit">Schedule Event</button>
+            </form>
+        </div>
+    </body>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Charity Event</title>
+    <link rel="stylesheet" href="eventStyle.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Schedule Charity Event</h1>
+        <form action="#" method="post">
+            <label for="eventTitle">Event Title:</label>
+            <input type="text" id="eventTitle" name="eventTitle" required>
+            
+            <label for="eventDate">Event Date:</label>
+            <input type="date" id="eventDate" name="eventDate" required>
+            
+            <label for="eventTime">Event Time:</label>
+            <input type="time" id="eventTime" name="eventTime" required>
+            
+            <label for="contactName">Contact Name:</label>
+            <input type="text" id="contactName" name="contactName" required>
+            
+            <label for="contactEmail">Contact Email:</label>
+            <input type="email" id="contactEmail" name="contactEmail" required>
+            
+            <label for="eventDescription">Event Description:</label>
+            <textarea id="eventDescription" name="eventDescription" required></textarea>
+            
+            <button type="submit">Schedule Event</button>
+        </form>
+    </div>
+</body>
+</html>
+*/-->
