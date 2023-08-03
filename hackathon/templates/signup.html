@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!---Coding By CodingLab | www.codinglabweb.com--->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Registration Form in HTML CSS</title>
+    <!---Custom CSS File--->
+    <link rel="stylesheet" href="static/style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header>Donor Registration </header>
+      <form action="/signup" method = "post"class="form" enctype="multipart/form-data">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" name = "name" placeholder="Enter full name" required />
+        </div>
+
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" name = "email"placeholder="Enter email address" required />
+        </div>
+        <div class="input-box">
+          <label>Contact Number</label>
+          <input type="text" name = "mobile"placeholder="Enter Phone Number" required />
+        </div>
+        <div class="input-box">
+          <label>Address</label>
+          <input type="text" name = "address" placeholder="Enter Address" required />
+        </div>
+        <div class="gender-box">
+          <h3>I am a: </h3>
+          <div class="gender-option">
+           
+            <div class="gender">
+              <input type="radio" id="check-other1" name="option" value="donor" />
+              <label for="check-other1">Individual</label>
+            </div>
+
+            <div class="gender">
+              <input type="radio" id="check-other" name="option" value = "ngo" />
+              <label for="check-other">Organisation</label>
+            </div>
+
+          </div>
+        </div>
+        <div class = "if_ngo" style="display: none;">
+          <label>Validation Document</label>
+          <input type="file" name="image" id="image">
+        </div>
+        <div class="input-box">
+          <label>Password</label>
+          <input type="password" name = "pass1"placeholder="Enter Password" required />
+        </div>
+        <div class="input-box">
+          <label>Confirm Password</label>
+          <input type="password" name = "pass2"placeholder="Re-Enter Password" required />
+        </div>
+        <button name = "submit">Submit</button>
+      </form>
+    </section>
+  </body>
+  <script>
+        // Add event listener to radio buttons
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', showDivBasedOnSelection);
+        });
+
+        // Function to show the "if_ngo" div based on the selected value
+        function showDivBasedOnSelection() {
+            const ifNgoDiv = document.querySelector('.if_ngo');
+
+            if (this.value === 'ngo') {
+                ifNgoDiv.style.display = 'block';
+            } else {
+                ifNgoDiv.style.display = 'none';
+            }
+        }
+</script>
+</html>

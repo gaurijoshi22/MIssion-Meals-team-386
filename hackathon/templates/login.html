@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!---Coding By CoderGirl | www.codinglabweb.com--->
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login & Registration Form | CoderGirl</title>
+  <!---Custom CSS File--->
+  <link rel="stylesheet" href="static/login_style.css">
+  <style>
+    /* Custom CSS styles */
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login.form {
+      text-align: center;
+
+    }
+  </style>
+</head>
+
+<body>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+
+
+
+  <script>
+    var message = "{{ messages[0] }}";
+    alert(message);
+  </script>
+  
+
+  {% endif %}
+  {% endwith %}
+  <div class="container">
+    <div class="login form">
+      <header>Login</header>
+      <form action="/login" method="post">
+        <input type="text" name = "email" placeholder="Enter your email">
+        <input type="password" name ="password" placeholder="Enter your password">
+        <!--<div class="center-align">
+          <label for="userType">Login as:</label>
+          <select id="userType">
+            <option value="ngo">NGO</option>
+            <option value="donor">Donor</option>
+            <option value="admim">Admin</option>
+          </select>
+        </div>-->
+        <input type="submit" class="button" name = "submit"value="Login">
+      </form>
+      <div class="signup">
+        <span class="signup">Don't have an account?
+          <label for="check">Signup</label>
+        </span>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  // Handle the form submission
+  document.getElementById('form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+      const formData = new FormData(form);
+
+      try {
+          const response = await fetch('/login', {
+              method: 'POST',
+              body: formData,
+          });
+
+          if (response.ok) {
+              // Login successful, redirect or show a success message
+              window.location.href = '/dashboard'; // Replace '/dashboard' with your desired URL
+          } else {
+              // Login failed, display the error message in a popup/alert
+              const errorMessage = await response.text();
+              alert(errorMessage);
+          }
+      } catch (error) {
+          console.error('Error during login:', error);
+      }
+  });
+</script>
+
+</html>

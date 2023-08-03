@@ -1,0 +1,167 @@
+/* Custom styles for the website */
+
+/* Header */
+html, body {
+        min-height: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: #000000;
+      }
+      
+      h1 {
+        margin: 0 0 20px;
+        font-weight: 400;
+        color: #000508;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #00060a; 
+        font-size: 16px;
+        font-weight: 400;
+        color: #fff;
+        }
+        button:hover {
+        background: #353535;
+        }  
+        .header {
+                    overflow: hidden;
+                    background-color: #01080b;
+                    padding: 20px 10px;
+              }
+              
+              .header a.mh {
+                    text-align: center;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-weight: bold;
+                    align-items: center;
+              }
+              
+              .header a {
+                    float: left;
+                    color: rgb(246, 242, 242);
+                    text-align: center;
+                    padding: 12px;
+                    text-decoration: none;
+                    font-size: 18px;
+                    line-height: 25px;
+                    border-radius: 4px;
+                    
+              }
+              
+              .food{
+      font-family: 'Times New Roman', Times, serif;
+            font-weight: bold; 
+      
+      color:rgb(255, 255, 255);
+      
+      
+    }
+    
+    .header a.logo {
+                    font-size: 40px;
+                    font-weight: bold;
+        margin-top: 30px;
+              }
+              
+              .header a:hover {
+                    background-color: #5b5959;
+                    color: black;
+              }
+              
+              .header-right {
+                    margin-left: 1000px;
+              }
+    .navbar {
+        background-color: black; /* Set the header background color to black */
+        margin-bottom: 0;
+    }
+    
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        color: white; /* Set the color of the header text */
+    }
+    
+    .header img {
+        margin-right: 10px; 
+        border-radius: 50%;/* Add some spacing between the logo and text */
+    }
+    
+    
+    .nav-link {
+        margin-left: 10px;
+        color: #fff; /* Set the color of the buttons */
+        border: 1px solid #428bca; /* Set initial button border color to match the header */
+        border-radius: 4px;
+        padding: 5px 10px;
+    }
+    
+    .nav-link:hover {
+        border: 1px solid #fff; /* Change button border color on hover */
+    }
+    
+    /* Sliding Photos */
+    #sliding-photos {
+        margin-bottom: 0;
+    }
+    
+    .carousel-item img {
+        height: 500px; /* Set an appropriate height for your photos */
+    }
+    
+    /* Upcoming Events */
+    #upcoming-events h2 {
+        margin-bottom: 20px;
+        color: #000;
+    }
+    
+    .event {
+        margin-bottom: 20px;
+    }
+    
+    /* Apply circular border radius to event images */
+    .event img {
+        border-radius: 30%;
+    }
+    
+    .event1 img{
+        border-radius: 50%;
+    }
+    
+    .event h3{
+        margin-bottom: 5px; /* Decrease space between elements */
+        font-size: 20px;
+        color: #000; 
+    }
+    .event1 h3{
+        margin-bottom: 5px; /* Decrease space between elements */
+        font-size: 20px;
+        color: #000; 
+    }
+    .event p {
+        margin-bottom: 5px; /* Decrease space between elements */
+        font-size: 14px; /* Slightly decrease font size */
+        color: #000;
+    }
+    
+    
+    
+    .decorative-line {
+        background: linear-gradient(to right, transparent 0%, #080808 30%, #888 70%, transparent 100%);
+        height: 10px; /* Adjust the height of the decorative line */
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 45%; /* Occupies one-third of the screen */
+    }
+    
+    /* Footer */
+    footer {
+        padding: 20px 0;
+        background-color: #000;
+    }

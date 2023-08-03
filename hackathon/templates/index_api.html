@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Geolocation</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src = "/static/gapi.js"></script>
+    <!-- jsFiddle will insert css and js -->
+    <link rel="stylesheet" href='/static/style.css' />
+  </head>
+  <body>
+    <div id="map"></div>
+
+    <!-- 
+      The `defer` attribute causes the callback to execute after the full HTML
+      document has been parsed. For non-blocking uses, avoiding race conditions,
+      and consistent behavior across browsers, consider loading using Promises.
+      See https://developers.google.com/maps/documentation/javascript/load-maps-js-api
+      for more information.
+      -->
+      <h1>Above is api map</h1>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAl-h47i9jORHeEsXGx8bBSSaOQCrizXVs&callback=initMap&v=weekly"
+      defer
+    ></script>
+    <h1>This is embeded map</h1>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3783.413353084986!2d73.83274417499152!3d18.510213769490832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf8c1c9610af%3A0x93d7efc8d8b1d581!2sSonal%20Hall!5e0!3m2!1sen!2sin!4v1690978425131!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </body>
+</html>
