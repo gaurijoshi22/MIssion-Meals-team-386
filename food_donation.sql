@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 03, 2023 at 03:16 PM
+-- Generation Time: Aug 03, 2023 at 03:31 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -68,7 +68,8 @@ CREATE TABLE `ngo` (
 -- Indexes for table `credentials`
 --
 ALTER TABLE `credentials`
-  ADD PRIMARY KEY (`uid`);
+  ADD PRIMARY KEY (`uid`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indexes for table `donor`
