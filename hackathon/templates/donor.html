@@ -194,7 +194,14 @@
         <a href="/logout" class="dashboard-link">Logout</a>
         <!-- Add more dashboard options as needed -->
       </div>
-
+      {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <script>
+      var message = "{{ messages[0] }}";
+      alert(message);
+    </script>
+    {% endif %}
+    {% endwith %}
       <!-- Column 2 -->
       <div class="col-md-9">
         <div class="data-container">
