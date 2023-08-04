@@ -6,20 +6,25 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-body {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background:#87CEFA;
+html, body {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  background-color: #87CEFA;
 }
+
 .container {
-  position: relative;
+  position: absolute;
   max-width: 700px;
   width: 100%;
   background: #fff;
   padding: 25px;
+  align-self: center;
+  margin-left: 400px;
+  margin-top: 30px;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
@@ -111,6 +116,90 @@ body {
 .form button:hover {
   background: rgb(88, 56, 250);
 }
+
+
+button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #000000; 
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  }
+  button:hover {
+  background: #353535;
+  }  
+  .header {
+              overflow: hidden;
+              background-color: #000000;
+              padding: 20px 10px;
+              height: 120px;
+        }
+        
+        .header a.mh {
+              text-align: center;
+              font-family: 'Times New Roman', Times, serif;
+              font-weight: bold;
+              align-items: center;
+        }
+        .header a.i{
+          margin-bottom: 2px;
+        }
+        
+        .header a {
+              float: left;
+              color: rgb(246, 242, 242);
+              text-align: center;
+              padding: 8px;
+              text-decoration: none;
+              font-size: 18px;
+              line-height: 25px;
+              border-radius: 4px;
+              margin-top:0px;
+              
+        }
+        
+        .food{
+font-family: 'Times New Roman', Times, serif;
+      font-weight: bold; 
+
+color:rgb(255, 255, 255);
+
+
+}
+
+.header a.logo {
+              font-size: 40px;
+              font-weight: bold;
+              margin-top: 20px;
+        }
+        
+        .header a:hover {
+              background-color: #5b5959;
+              color: black;
+        }
+        
+        .header-right {
+              margin-left: 1000px;
+        }
+.navbar {
+  background-color: black; /* Set the header background color to black */
+  margin-bottom: 0;
+  width: 100px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: white; /* Set the color of the header text */
+}
+
+.header img {
+  margin-right: 10px; 
+  border-radius: 50%;/* Add some spacing between the logo and text */
+}
+
 /*Responsive*/
 @media screen and (max-width: 500px) {
   .form .column {
