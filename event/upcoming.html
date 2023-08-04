@@ -1,173 +1,313 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Upcoming Charity Events</title>
-    
+  <title>Two-Column Page</title>
   <!-- Add your CSS styles here -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Custom CSS styles */
+    html,
     body {
-      padding: 20px;
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #000000;
     }
+
     .dashboard-column {
       background-color: #f8f9fa;
       min-height: 100vh;
-      padding: 10px;
+      padding: 0;
+      width: 50px;
+      /* Set initial width */
+      overflow: hidden;
+      transition: width 0.3s ease-in-out;
     }
+
+    .dashboard-column a {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .dashboard-column a:hover {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 22px;
+      text-align: center;
+      background-color: #5b5959;
+      color: #000000
+    }
+
+    .dashboard-column:hover {
+      width: 250px;
+      /* Expand on hover */
+    }
+
     .dashboard-link {
       display: block;
-      width: max-content;
       margin-bottom: 10px;
       text-decoration: none;
       color: #333;
       font-weight: bold;
     }
+
     .dashboard-link:hover {
       color: #007bff;
     }
+
     .data-container {
       background-color: #f1f1f1;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+      padding: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       min-height: 100vh;
     }
+
     /* Navbar styles */
-    .navbar {
-      background-color: #87CEFA;
-      color: #fff;
+
+
+
+    button {
+      width: 100%;
       padding: 10px;
-      height: 80px;
+      border: none;
+      background: #000000;
+      font-size: 20px;
+      font-weight: 400;
+      color: #fff;
+    }
+
+    button:hover {
+      background: #353535;
+    }
+
+    .header {
+      overflow: hidden;
+      background-color: #000000;
+      padding: 20px 10px;
+      height: 130px;
+    }
+
+    .header a.mh {
+      text-align: center;
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+      align-items: center;
+    }
+
+    .header a.i {
+      margin-bottom: 2px;
+    }
+
+    .header a {
+      float: left;
+      color: rgb(246, 242, 242);
+      text-align: center;
+      padding: 8px;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 25px;
+      border-radius: 4px;
+      margin-top: 0px;
+
+    }
+
+    .food {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: bold;
+
+      color: rgb(255, 255, 255);
+
+
+    }
+
+    .header a.logo {
+      font-size: 40px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .header a:hover {
+      background-color: #5b5959;
+      color: black;
+    }
+
+    .header-right {
+      margin-left: 1200px;
+    }
+
+    .navbar {
+      background-color: black;
+      /* Set the header background color to black */
+      margin-bottom: 0;
+      width: 100px;
+    }
+
+    .navbar-brand {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      color: white;
+      /* Set the color of the header text */
     }
-    .navbar-links {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-    .navbar-links li {
-      margin-right: 20px;
-    }
-    .navbar-links li:last-child {
-      margin-right: 0;
-    }
-    .navbar-links li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .navbar-links li a:hover {
-      color: #f8f9fa;
-    }
-    .logo img {
-      height: 60px; /* Set the height of the logo */
-    }
-    .row {
-        width: 300px;
 
+    .header img {
+      margin-right: 10px;
+      border-radius: 50%;
+      /* Add some spacing between the logo and text */
     }
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    float: left;
+    max-width: 700px;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+h1 {
+  padding-top: 5px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #000000;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    background-color: #818385;
+}
+
+
+.event-card {
+   
+   background-color: #f9f9f9;
+   /* background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 250, 250, 0.5)), url('charityrun.jpg'); /* Replace 'path-to-your-image.jpg' with the actual path to your image */
+  /* background-size: cover; /* Adjust background sizing */  
+  /* background-repeat: no-repeat;  Prevent the image from repeating */
+ /*  background-position: center;  Center the image */
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   padding: 15px;
+   margin: 10px 0;
+}
+
+.event-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: baseline;
+   margin-bottom: 10px;
+}
+
+.event-name {
+   font-size: 22px;
+   margin: 0;
+}
+
+.event-date {
+   color: #777;
+   font-size: 16px;
+   margin: 0;
+}
+
+.event-description {
+   font-size: 18px;
+   line-height: 1.5;
+   margin: 0;
+}
+.image {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   margin-bottom: 30px;
+ }
+ 
+h1 {
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+
   </style>
-  <link rel="stylesheet" href="upcomingStyle.css">
 </head>
+
 <body>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <script>
+      var message = "{{ messages[0] }}";
+      alert(message);
+    </script>
+    {% endif %}
+    {% endwith %}
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">
-      <img src="./logo.png" alt="">
+  <div class="header">
+    <a href="" class="i"><img src="{{ url_for('static', filename='images/logo.jpg') }}" width="100" height="90"></a>
+    <a href="" class="logo"><span class="food">FOOD</span></a>
+    <div class="header-right">
+      <form href="#about"><a><button href="#about">About Us</button></a></form>
+      <form href="#contact"><a><button href="#contact">Contact Us</button></a></form>
     </div>
-    <ul class="navbar-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">User Profile</a></li>
-    </ul>
   </div>
 
-  <div class="container1">
-    <div class="row">
+
+  <div class="container-fluid px-0"> <!-- Added class to remove horizontal padding -->
+    <div class="row no-gutters"> <!-- Removed gutter spacing -->
       <!-- Column 1 -->
       <div class="col-md-3 dashboard-column">
-        <h2>Dashboard</h2>
-        <a href="donate.html" class="dashboard-link">Donate Food</a>
-        <a href="a.html" class="dashboard-link">Your Donations</a>
-        <a href="map.html" class="dashboard-link">Ngo Map</a>
-        <a href="leaderboard.html" class="dashboard-link">Make Donation</a>
 
+        
+        <a href="/donor_main" class="dashboard-link">Your Donations</a>
+        <a href="/donor_main/donate_food" class="dashboard-link">Donate Food</a>
+        <a href="map.html" class="dashboard-link">Ngo Map</a>
+        <a href="leaderboard.html" class="dashboard-link">Events</a>
+        <a href="leaderboard.html" class="dashboard-link">Your Profile</a>
+        <a href="/logout" class="dashboard-link">Logout</a>
         <!-- Add more dashboard options as needed -->
-      </div>
-      </div>
       </div>
 
       <!-- Column 2 -->
-      <body>
-        <div class="container">
-            <h1>Upcoming Charity Events</h1>
-            <div class="event-card">
-                <img src="gala.jpg" class="image">
-                <div class="event-header">
-                    <h2 class="event-name">Charity Gala Night</h2>
-                    <p class="event-date">August 15, 2023</p>
-                </div>
-                <p class="event-description">Join us for a glamorous night of fundraising and entertainment.</p>
-                <p class="event-description">Contact- +91 8745747412</p>
-                <p class="event-description">Email- livesngo@ngo.in</p>
-            </div>
-            <div class="event-card">
-                <img src="fooddrive.jpg" class="image">
-                <div class="event-header">
-                    <h2 class="event-name">Community Food Drive</h2>
-                    <p class="event-date">September 5, 2023</p>
-                </div>
-                <p class="event-description">Help us collect food items for the less fortunate in our community.</p>
-                <p class="event-description">Contact- +91 8541201245</p>
-                <p class="event-description">Email- we.smile@gmail.com</p>
-            </div>
-            <div class="event-card">
-                <img src="charityrun.jpg" class="image" sizes="10">
-                <div class="event-header">
-                    <h2 class="event-name">Run for a Cause</h2>
-                    <p class="event-date">September 20, 2023</p>
-                </div>
-                <p class="event-description">Participate in a charity run to support children's education.</p>
-                <p class="event-description">Contact- +91 9741245748</p>
-                <p class="event-description">Email- happyfacesngo@yahoo.com</p>
-            </div>
-            <!-- Add more event cards as needed -->
-        </div>
-    </body>
-    </div>
-  </div>
-
-  <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upcoming Charity Events</title>
-    <link rel="stylesheet" href="upcomingStyle.css">
-</head>
-<body>
-    <div class="container">
+      
+      <div class="container">
         <h1>Upcoming Charity Events</h1>
         <div class="event-card">
-            <img src="gala.jpg" class="image">
+            <img src="{{ url_for('static', filename='images/gala.jpg') }}" class="image">
             <div class="event-header">
                 <h2 class="event-name">Charity Gala Night</h2>
                 <p class="event-date">August 15, 2023</p>
@@ -177,7 +317,7 @@
             <p class="event-description">Email- livesngo@ngo.in</p>
         </div>
         <div class="event-card">
-            <img src="fooddrive.jpg" class="image">
+            <img src="{{ url_for('static', filename='images/fooddrive.jpg') }}" class="image">
             <div class="event-header">
                 <h2 class="event-name">Community Food Drive</h2>
                 <p class="event-date">September 5, 2023</p>
@@ -187,7 +327,7 @@
             <p class="event-description">Email- we.smile@gmail.com</p>
         </div>
         <div class="event-card">
-            <img src="charityrun.jpg" class="image" sizes="10">
+            <img src="{{ url_for('static', filename='images/charityrun.jpg') }}" class="image" sizes="10">
             <div class="event-header">
                 <h2 class="event-name">Run for a Cause</h2>
                 <p class="event-date">September 20, 2023</p>
@@ -196,8 +336,21 @@
             <p class="event-description">Contact- +91 9741245748</p>
             <p class="event-description">Email- happyfacesngo@yahoo.com</p>
         </div>
-         Add more event cards as needed 
+        <!-- Add more event cards as needed -->
     </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html> -->
+
+</html>
+
+
+
+
+
 
