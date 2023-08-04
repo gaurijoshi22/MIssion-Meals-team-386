@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Two-Column Page</title>
+  <!-- Add your CSS styles here -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS styles */
+    body {
+      padding: 20px;
+    }
+    .dashboard-column {
+      background-color: #f8f9fa;
+      min-height: 100vh;
+      padding: 10px;
+    }
+    .dashboard-link {
+      display: block;
+      margin-bottom: 10px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    .dashboard-link:hover {
+      color: #007bff;
+    }
+    .data-container {
+      background-color: #f1f1f1;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      min-height: 100vh;
+    }
+    /* Navbar styles */
+    .navbar {
+      background-color: #87CEFA;
+      color: #fff;
+      padding: 10px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .navbar-links {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar-links li {
+      margin-right: 20px;
+    }
+    .navbar-links li:last-child {
+      margin-right: 0;
+    }
+    .navbar-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar-links li a:hover {
+      color: #f8f9fa;
+    }
+    .logo img {
+      height: 60px; /* Set the height of the logo */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="./logo.png" alt="">
+    </div>
+    <ul class="navbar-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">User Profile</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <!-- Column 1 -->
+      <div class="col-md-3 dashboard-column">
+        <h2>Dashboard</h2>
+        <a href="donate.html" class="dashboard-link">Donate Food</a>
+        <a href="a.html" class="dashboard-link">Your Donations</a>
+        <a href="map.html" class="dashboard-link">Ngo Map</a>
+        <a href="leaderboard.html" class="dashboard-link">Make Donation</a>
+
+        <!-- Add more dashboard options as needed -->
+      </div>
+
+      <!-- Column 2 -->
+      <div class="col-md-9">
+        <div class="data-container">
+          <h2>Data from Database</h2>
+          <!-- Data fetched from the database will be displayed here -->
+          <p>This container can display data fetched from the database.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+

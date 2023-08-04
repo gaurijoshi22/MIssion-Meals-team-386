@@ -36,7 +36,7 @@ def login():
 
         if result and password == result['password']:
             
-            return render_template("profile.html")
+            return render_template("donor.html")
         else:
             
             return "Invalid email or password", 401
@@ -105,6 +105,10 @@ def signup():
 
 
     return render_template("signup.html")
+
+@app.route('/donor_main', methods=['GET', 'POST'])
+def donor_main():
+     return render_template("donor.html")
 
 if __name__ == '__main__':
     app.run()
