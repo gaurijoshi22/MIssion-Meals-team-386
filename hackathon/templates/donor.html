@@ -6,13 +6,37 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     /* Custom CSS styles */
-    body {
-      padding: 20px;
+    html, body {
+      min-height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: Roboto, Arial, sans-serif;
+      font-size: 14px;
+      color: #000000;
     }
     .dashboard-column {
       background-color: #f8f9fa;
       min-height: 100vh;
-      padding: 10px;
+      padding: 0;
+      width: 50px; /* Set initial width */
+      overflow: hidden;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .dashboard-column a{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 22px;
+      text-align: center;
+    }
+    .dashboard-column a:hover{
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 22px;
+      text-align: center;
+      background-color: #5b5959;
+      color:#000000
+    }
+    .dashboard-column:hover {
+      width: 250px; /* Expand on hover */
     }
     .dashboard-link {
       display: block;
@@ -26,67 +50,121 @@
     }
     .data-container {
       background-color: #f1f1f1;
-      padding: 20px;
+      padding: 0;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       min-height: 100vh;
     }
     /* Navbar styles */
+    
+    
+
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #000000; 
+        font-size: 20px;
+        font-weight: 400;
+        color: #fff;
+        }
+        button:hover {
+        background: #353535;
+        }  
+        .header {
+                    overflow: hidden;
+                    background-color: #000000;
+                    padding: 20px 10px;
+                    height: 130px;
+              }
+              
+              .header a.mh {
+                    text-align: center;
+                    font-family: 'Times New Roman', Times, serif;
+                    font-weight: bold;
+                    align-items: center;
+              }
+              .header a.i{
+                margin-bottom: 2px;
+              }
+              
+              .header a {
+                    float: left;
+                    color: rgb(246, 242, 242);
+                    text-align: center;
+                    padding: 8px;
+                    text-decoration: none;
+                    font-size: 18px;
+                    line-height: 25px;
+                    border-radius: 4px;
+                    margin-top:0px;
+                    
+              }
+              
+              .food{
+      font-family: 'Times New Roman', Times, serif;
+            font-weight: bold; 
+      
+      color:rgb(255, 255, 255);
+      
+      
+    }
+    
+    .header a.logo {
+                    font-size: 40px;
+                    font-weight: bold;
+                    margin-top: 20px;
+              }
+              
+              .header a:hover {
+                    background-color: #5b5959;
+                    color: black;
+              }
+              
+              .header-right {
+                    margin-left: 1200px;
+              }
     .navbar {
-      background-color: #87CEFA;
-      color: #fff;
-      padding: 10px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+        background-color: black; /* Set the header background color to black */
+        margin-bottom: 0;
+        width: 100px;
     }
-    .navbar-links {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
+    
+    .navbar-brand {
+        display: flex;
+        align-items: center;
+        color: white; /* Set the color of the header text */
     }
-    .navbar-links li {
-      margin-right: 20px;
+    
+    .header img {
+        margin-right: 10px; 
+        border-radius: 50%;/* Add some spacing between the logo and text */
     }
-    .navbar-links li:last-child {
-      margin-right: 0;
-    }
-    .navbar-links li a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .navbar-links li a:hover {
-      color: #f8f9fa;
-    }
-    .logo img {
-      height: 60px; /* Set the height of the logo */
-    }
+    
+
   </style>
 </head>
 <body>
   <!-- Navbar -->
-  <div class="navbar">
-    <div class="logo">
-      <img src="./logo.png" alt="">
+  <div class="header">
+    <a href="" class="i"><img src="{{ url_for('static', filename='images/logo.jpg') }}" width="100" height="90"></a>
+<a href="" class="logo"><span class="food">FOOD</span></a>
+    <div class="header-right">
+      <form href="#about"><a><button href="#about">About Us</button></a></form>
+      <form href="#contact"><a><button href="#contact">Contact Us</button></a></form>
     </div>
-    <ul class="navbar-links">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">User Profile</a></li>
-    </ul>
   </div>
 
-  <div class="container">
-    <div class="row">
+
+  <div class="container-fluid px-0"> <!-- Added class to remove horizontal padding -->
+    <div class="row no-gutters"> <!-- Removed gutter spacing -->
       <!-- Column 1 -->
       <div class="col-md-3 dashboard-column">
-        <h2>Dashboard</h2>
+        
         <a href="donate.html" class="dashboard-link">Donate Food</a>
         <a href="a.html" class="dashboard-link">Your Donations</a>
         <a href="map.html" class="dashboard-link">Ngo Map</a>
-        <a href="leaderboard.html" class="dashboard-link">Make Donation</a>
-
+        <a href="leaderboard.html" class="dashboard-link">Events</a>
+        <a href="leaderboard.html" class="dashboard-link">Your Profile</a>
         <!-- Add more dashboard options as needed -->
       </div>
 
