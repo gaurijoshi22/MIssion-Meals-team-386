@@ -114,6 +114,10 @@
 
     }
 
+    h1{
+      align-self: center;
+    }
+
     .food {
       font-family: 'Times New Roman', Times, serif;
       font-weight: bold;
@@ -152,6 +156,27 @@
       /* Set the color of the header text */
     }
 
+    form{
+      font-size: 20px;
+      text-align: left;
+      
+    }
+
+    label{
+      margin-bottom: 3px;
+    }
+
+    input{
+      margin-bottom: 11px;
+      width:1000px;
+      height: 40px;
+    }
+
+    .s{
+      margin-top: 30px;
+      width:1000px
+    }
+
     .header img {
       margin-right: 10px;
       border-radius: 50%;
@@ -163,6 +188,7 @@
 <body>
 
   <!-- Navbar -->
+  <navbar>
   <div class="header">
     <a href="" class="i"><img src="{{ url_for('static', filename='images/logo.jpg') }}" width="100" height="90"></a>
     <a href="" class="logo"><span class="food">FOOD</span></a>
@@ -170,7 +196,9 @@
       <form href="#about"><a><button href="#about">About Us</button></a></form>
       <form href="#contact"><a><button href="#contact">Contact Us</button></a></form>
     </div>
+
   </div>
+</navbar>
 
 
   <div class="container-fluid px-0"> <!-- Added class to remove horizontal padding -->
@@ -189,12 +217,10 @@
 
       <!-- Column 2 -->
       <div class="col-md-9">
-        <div class="data-container">
-          <h2>Please fill out the Details</h2>
-          <!-- Data fetched from the database will be displayed here -->
-          <p>Our NGO will contact you shortly after filling the form.</p>
         
+        <body>
         <div class="container">
+          <h1>Donate Food</h1>
                 <form action="/donor_main/donate_food" method="post">
                     <label for="ngoName">Item Name:</label><br>
                     <input type="text"  name="item_name" required><br>
@@ -214,11 +240,13 @@
                     <label for="contactName">Expiry:</label><br>
                     <input type="date"  name="edate" required><br>
                     
-                    <button type="submit" name = "submit">Submit</button><br>
+                    <button class="s" type="submit" name = "submit">Submit</button><br>
                 </form>
             </div>
+          </body>
         </div>
-        </body>
+        </div>
+        
 
   <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

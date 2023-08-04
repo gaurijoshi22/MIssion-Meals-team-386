@@ -8,7 +8,7 @@ app.debug = True  # Enable debug mode
 app.secret_key = 'your secret key'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = 'root123'
 app.config['MYSQL_DB'] = 'food_donation'
 
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
@@ -154,6 +154,8 @@ def donateFood():
         flash('done', 'success')
         return redirect("/donor_main")
     return render_template("donate_food.html")
+
+
 
     
 @app.route('/ngo_main', methods=['GET', 'POST'])
