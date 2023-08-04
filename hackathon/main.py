@@ -106,9 +106,36 @@ def signup():
 
     return render_template("signup.html")
 
+@app.route('/scheduleEvent', methods=['GET', 'POST'])
+def scheduleEvent():
+    eventTitle = request.form.get("eventTitle")
+    eventDate = request.form.get("eventDate")
+    eventTime = request.form.get("eventTime")
+    contactName = request.form.get("contactName")
+    contactEmail = request.form.get("contactEmail")
+    eventDescription = request.form.get("eventDescription")
+    ngoReg = request.form.get("ngoReg")
+
+    #uid=session['user_id'] 
+
+    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    #select_query = "SELECT uid FROM credentials WHERE uid = %s"
+    #cursor.execute(select_query, (uid,))
+
+    #result = cursor.fetchone()
+
+    select_query = "INSERT into Event values  (%s,%s,%s,%s,%s,%s,%s)"
+    cursor.execute(select_query, (ngoReg,eventTitle,eventDate,contactName,contactEmail,eventDescription,eventTime))
+    mysql.connection.commit()
+    flash('Event successful!', 'success')
+    return render_template("ngo.html")
+
+
+
 @app.route('/donor_main', methods=['GET', 'POST'])
 def donor_main():
      return render_template("donor.html")
+
 
 if __name__ == '__main__':
     app.run()
