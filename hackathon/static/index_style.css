@@ -19,7 +19,7 @@ html, body {
         width: 100%;
         padding: 10px;
         border: none;
-        background: #87CEFA; 
+        background: #000000; 
         font-size: 16px;
         font-weight: 400;
         color: #fff;
@@ -29,7 +29,7 @@ html, body {
         }  
         .header {
                     overflow: hidden;
-                    background-color: #87CEFA;
+                    background-color: #000000;
                     padding: 20px 10px;
                     height: 120px;
               }
