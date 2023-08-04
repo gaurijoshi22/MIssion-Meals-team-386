@@ -7,17 +7,17 @@
    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     
-    <link rel="stylesheet" href="index_style.css">
+    <link rel="stylesheet" href="static/index_style.css">
 </head>
 <body>
     <div class="header">
-        <a href=""><img src="logo.jpg" width="100" height="90"></a>
+        <a href="" class="i"><img src="{{ url_for('static', filename='images/logo.jpg') }}" width="100" height="90"></a>
   <a href="" class="logo"><span class="food">FOOD</span></a>
         <div class="header-right">
           <form href="#about"><a><button href="#about">About Us</button></a></form>
           <form href="#contact"><a><button href="#contact">Contact Us</button></a></form>
-          <form href="#contact"><a><button href="#contact">Login</button></a></form>
-          <form href="#contact"><a><button href="#contact">SignUp</button></a></form>
+          <form action="/login"><a><button href="#contact">Login</button></a></form>
+          <form action="/signup"><a><button href="#contact">SignUp</button></a></form>
         </div>
       </div>
    
@@ -33,13 +33,13 @@
         <div class="carousel-inner">
             
             <div class="carousel-item active">
-                <img src="photo1.jpg" class="d-block w-100" alt="Photo 1">
+                <img src="{{ url_for('static', filename='images/photo1.jpg') }}" class="d-block w-100" alt="Photo 1">
             </div>
             <div class="carousel-item">
-                <img src="photo1.jpg" class="d-block w-100" alt="Photo 2">
+                <img src="{{ url_for('static', filename='images/photo2.jpg') }}" class="d-block w-100" alt="Photo 2">
             </div>
             <div class="carousel-item">
-                <img src="photo3.jpg" class="d-block w-100" alt="Photo 3">
+                <img src="{{ url_for('static', filename='images/photo3.jpg') }}" class="d-block w-100" alt="Photo 3">
             </div>
            
         </div>
@@ -56,7 +56,7 @@
             <div class="col-md-4">
                 
                 <div class="event rounded-circle">
-                    <img src="event1.jpg" alt="Event 1">
+                    <img src="{{ url_for('static', filename='images/event1.jpg') }}" alt="Event 1">
                     <h3>Free country, Free food</h3>
                     <p>15 August</p>
                     <p>Pune</p>
@@ -66,7 +66,7 @@
             <div class="col-md-4">
               
                 <div class="event rounded-circle">
-                    <img src="event2.jpg" alt="Event 2">
+                    <img src="{{ url_for('static', filename='images/event2.jpg') }}" alt="Event 2">
                     <h3>Meals on wheels</h3>
                     <p>2 September</p>
                     <p>Pune</p>
@@ -76,7 +76,7 @@
             <div class="col-md-4">
                 
                 <div class="event rounded-circle">
-                    <img src="event3.jpg" alt="Event 3">
+                    <img src="{{ url_for('static', filename='images/event3.jpg') }}" alt="Event 3">
                     <h3>Feedy Grains</h3>
                     <p>27 September</p>
                     <p>Pune</p>
@@ -96,7 +96,7 @@
             <div class="col-md-4">
                 
                 <div class="event1 rounded-circle">
-                    <img class="v" src="v1.jpg" alt="Event 1">
+                    <img class="v" src="{{ url_for('static', filename='images/v1.jpg') }}" alt="Event 1">
                     <h3>Kiran Giri</h3>
                     
                 </div>
@@ -105,7 +105,7 @@
             <div class="col-md-4">
                 
                 <div class="event1 rounded-circle">
-                    <img class="v" src="v2.jpg" alt="Event 2">
+                    <img class="v" src="{{ url_for('static', filename='images/v2.jpg') }}" alt="Event 2">
                     <h3>Callie Heyes</h3>
                     
                 </div>
@@ -114,7 +114,7 @@
             <div class="col-md-4">
                 
                 <div class="event1 rounded-circle">
-                    <img class="v" src="v3.jpg" alt="Event 3">
+                    <img class="v" src="{{ url_for('static', filename='images/v3.jpg') }}" alt="Event 3">
                     <h3>Sayal Tilak</h3>
 
                 </div>

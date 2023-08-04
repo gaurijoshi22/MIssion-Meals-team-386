@@ -19,7 +19,7 @@ html, body {
         width: 100%;
         padding: 10px;
         border: none;
-        background: #00060a; 
+        background: #42b8ea; 
         font-size: 16px;
         font-weight: 400;
         color: #fff;
@@ -29,8 +29,9 @@ html, body {
         }  
         .header {
                     overflow: hidden;
-                    background-color: #01080b;
+                    background-color: #42b8ea;
                     padding: 20px 10px;
+                    height: 120px;
               }
               
               .header a.mh {
@@ -39,16 +40,20 @@ html, body {
                     font-weight: bold;
                     align-items: center;
               }
+              .header a.i{
+                margin-bottom: 2px;
+              }
               
               .header a {
                     float: left;
                     color: rgb(246, 242, 242);
                     text-align: center;
-                    padding: 12px;
+                    padding: 8px;
                     text-decoration: none;
                     font-size: 18px;
                     line-height: 25px;
                     border-radius: 4px;
+                    margin-top:0px;
                     
               }
               
@@ -64,7 +69,7 @@ html, body {
     .header a.logo {
                     font-size: 40px;
                     font-weight: bold;
-        margin-top: 30px;
+                    margin-top: 20px;
               }
               
               .header a:hover {
@@ -78,6 +83,7 @@ html, body {
     .navbar {
         background-color: black; /* Set the header background color to black */
         margin-bottom: 0;
+        width: 100px;
     }
     
     .navbar-brand {
