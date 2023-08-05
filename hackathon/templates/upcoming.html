@@ -268,14 +268,7 @@ h1 {
 </head>
 
 <body>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <script>
-      var message = "{{ messages[0] }}";
-      alert(message);
-    </script>
-    {% endif %}
-    {% endwith %}
+  
   <!-- Navbar -->
   <div class="header">
     <a href="" class="i"><img src="{{ url_for('static', filename='images/logo.jpg') }}" width="100" height="90"></a>
