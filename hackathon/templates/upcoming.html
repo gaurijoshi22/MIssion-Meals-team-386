@@ -306,56 +306,28 @@ h1 {
       
       <div class="container">
         <h1>Upcoming Charity Events</h1>
-        <table>
-          <tr>
-              <th>Event Title</th>
-              <th>Event Date</th>
-              <th>Event Time</th>
-              <th>Event Description</th>
-              <th>Contact Name</th>
-              <th>Event Email</th>
-          </tr>
+        
+          
           {% for event in result %}
-          <tr>
-              <td>{{ event.eventTitle }}</td>
-              <td>{{ event.eventDate }}</td>
-              <td>{{ event.eventTime }}</td>
-              <td>{{ event.eventDescription }}</td>
-              <td>{{ event.contactName }}</td>
-              <td>{{ event.contactEmail }}</td>
-          </tr>
+          <div class="event-card">
+            
+            <div class="event-header">
+              <h2 class="event-name">{{ event.eventTitle }}</h2>
+              <p class="event-date">{{ event.eventDate }}</p>
+              <p class="event-date">{{ event.eventTime }}</p>
+          </div>
+          
+            <p class="event-description">{{ event.eventDescription }}</p>
+            <p class="event-description">Contact- {{ event.contactName }}</p>
+            <p class="event-description">Email- {{ event.contactEmail }}</p>
+       
+        </div>
+              
           {% endfor %}
-      </table>
-        <div class="event-card">
-            <img src="{{ url_for('static', filename='images/gala.jpg') }}" class="image">
-            <div class="event-header">
-                <h2 class="event-name">Charity Gala Night</h2>
-                <p class="event-date">August 15, 2023</p>
-            </div>
-            <p class="event-description">Join us for a glamorous night of fundraising and entertainment.</p>
-            <p class="event-description">Contact- +91 8745747412</p>
-            <p class="event-description">Email- livesngo@ngo.in</p>
-        </div>
-        <div class="event-card">
-            <img src="{{ url_for('static', filename='images/fooddrive.jpg') }}" class="image">
-            <div class="event-header">
-                <h2 class="event-name">Community Food Drive</h2>
-                <p class="event-date">September 5, 2023</p>
-            </div>
-            <p class="event-description">Help us collect food items for the less fortunate in our community.</p>
-            <p class="event-description">Contact- +91 8541201245</p>
-            <p class="event-description">Email- we.smile@gmail.com</p>
-        </div>
-        <div class="event-card">
-            <img src="{{ url_for('static', filename='images/charityrun.jpg') }}" class="image" sizes="10">
-            <div class="event-header">
-                <h2 class="event-name">Run for a Cause</h2>
-                <p class="event-date">September 20, 2023</p>
-            </div>
-            <p class="event-description">Participate in a charity run to support children's education.</p>
-            <p class="event-description">Contact- +91 9741245748</p>
-            <p class="event-description">Email- happyfacesngo@yahoo.com</p>
-        </div>
+      
+        
+        
+        
         <!-- Add more event cards as needed -->
     </div>
     </div>

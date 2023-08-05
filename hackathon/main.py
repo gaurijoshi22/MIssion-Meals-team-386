@@ -50,7 +50,7 @@ def login():
 
             return "Invalid email or password", 401
 
-        mysql.cursor.close()
+        #mysql.cursor.close()
         mysql.connection.close()
 
     return render_template("login.html")
@@ -224,6 +224,19 @@ def scheduleEvent():
         flash('Event successful!', 'success')
     return render_template("event.html")
 
+@app.route('/upcoming')
+def upcoming():
+    uid = session.get('uid')
+    uid_val = uid.get('uid')
+    if request.method == 'GET':
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        select_query = "select * from event where eventDate>CURDATE() AND eventDate<CURDATE()+30;"
+        cursor.execute(select_query,)
+        result = cursor.fetchall()
+
+        mysql.connection.commit()
+        flash('Event successful!', 'success')
+    return render_template("upcoming.html",result=result)
 
 @app.route('/logout')
 def logout():
