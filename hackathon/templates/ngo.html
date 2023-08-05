@@ -72,7 +72,7 @@
 }
 
 table {
-    width: 90%;
+    width: 95%;
     margin: auto;
     
     border:5px black;
@@ -248,15 +248,16 @@ tr:nth-child(odd) {
           <table>
             <thead>
               <tr>
-                <th>Donation ID</th>
+                
                 <th>Item Name</th>
                 <th>Item Description</th>
                 <th>Item Quantity</th>
                 <th>Item Weight</th>
                 <th>Production Date</th>
-                <th>Expiry Hours</th>
+                <th>Expiration Date</th>
                 <th>Donation Status</th>
                 <th>Address</th>
+                <th>Phone Number</th>
                 <th>Change Status</th>
                 
               </tr>
@@ -264,7 +265,7 @@ tr:nth-child(odd) {
             <tbody>
               {% for da in data %}
               <tr>
-                <td>{{ da.Donation_id }}</td>
+                
                 <td>{{ da.Item_name }}</td>
                 <td>{{ da.Item_description }}</td>
                 <td>{{ da.Item_quantity }}</td>
@@ -272,12 +273,9 @@ tr:nth-child(odd) {
                 <td>{{ da.Item_date_of_production }}</td>
                 <td>{{ da.Item_Expiry_hours }}</td>
                 <td>{{ da.Donation_status }}</td>
-<<<<<<< HEAD
-                <td><button class="remove-button" data-donation-id="{{ da.Donation_id }}">Accept</button></td>
-=======
                 <td>{{ da.address }}</td>
-                <td><button class="remove-button" data-donation-id="{{ da.Donation_id }}">Remove</button></td>
->>>>>>> 95b0f386fbb2e638da73194aaabd4737c4f46008
+                <td>{{ da.mobile }}</td>
+                <td><button class="remove-button" data-donation-id="{{ da.Donation_id }}">Accept</button></td>
               </tr>
               {% endfor %}
               

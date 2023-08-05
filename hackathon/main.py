@@ -174,20 +174,13 @@ def leaderboard():
 def available():
     status = "Available"
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    select_query = "SELECT * FROM current_donations WHERE Donation_status = %s"
-    select_query2 = "SELECT address from donor where uid = (SELECT Uid from current_donations WHERE Donation_status = %s)"
-
+    select_query = """ SELECT cd.Item_name, cd.Item_description, cd.Item_quantity, cd.Item_weight, cd.Item_date_of_production, cd.Item_Expiry_hours, cd.Donation_status, d.address , d.mobile
+    FROM current_donations cd JOIN donor d ON cd.uid = d.uid WHERE cd.Donation_status = %s """
+    
     cursor.execute(select_query, (status,))
     data = cursor.fetchall()
-    cursor.execute(select_query2, (status,))
-    add = cursor.fetchall()
-    if (data is not None):
-        da = []
-        for d,a in zip(data,add):
-            tup = d | a
-            da.append(tup)
 
-    return render_template("ngo.html",data=da)
+    return render_template("ngo.html", data=data)
 
 @app.route('/ngo_main/remove_donation/<int:donation_id>/', methods=['GET'])
 def remove_donation(donation_id):
