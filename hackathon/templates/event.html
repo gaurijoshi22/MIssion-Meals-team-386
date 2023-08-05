@@ -243,11 +243,8 @@ button:hover {
       <div class="col-md-3 dashboard-column">
 
         
-        <a href="/donor_main" class="dashboard-link">Your Donations</a>
-        <a href="/donor_main/donate_food" class="dashboard-link">Donate Food</a>
-        <a href="map.html" class="dashboard-link">Ngo Map</a>
-        <a href="leaderboard.html" class="dashboard-link">Events</a>
-        <a href="/leaderboard" class="dashboard-link">Leaderboard</a>
+        <a href="donate.html" class="dashboard-link">Available Donations</a>
+        <a href="/scheduleEvent" class="dashboard-link">Start an Event</a>
         <a href="leaderboard.html" class="dashboard-link">Your Profile</a>
         <a href="/logout" class="dashboard-link">Logout</a>
         <!-- Add more dashboard options as needed -->
@@ -257,12 +254,7 @@ button:hover {
       
         <div class="container">
             <h1>Schedule Charity Event</h1>
-            <form action="#" method="post">
-                <label for="ngoName">NGO Name:</label>
-                <input type="text" id="ngoName" name="ngoName" required>
-
-                <label for="ngoReg">NGO Registration Number:</label>
-                <input type="text" id="ngoReg" name="ngoReg" required>
+            <form action="/scheduleEvent" method="post">
 
                 <label for="eventTitle">Event Title:</label>
                 <input type="text" id="eventTitle" name="eventTitle" required>

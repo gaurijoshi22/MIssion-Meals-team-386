@@ -1,14 +1,14 @@
-from flask import Flask, render_template, request,flash,redirect,url_for,jsonify,session
+from flask import Flask, render_template, request, flash, redirect, url_for, jsonify, session
 from flask_mysqldb import MySQL
 import MySQLdb.cursors
 import re
-import os 
+import os
 app = Flask(__name__)
 app.debug = True  # Enable debug mode
 app.secret_key = 'your secret key'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root123'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'food_donation'
 
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
@@ -22,7 +22,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/login', methods =['GET', 'POST'])
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     email = request.form.get("email")
     password = request.form.get("password")
@@ -43,11 +43,11 @@ def login():
             uid_val = result.get('uid')
 
             if uid_val.startswith('D'):
-                return redirect('/donor_main') 
+                return redirect('/donor_main')
             if uid_val.startswith('N'):
-                return redirect('/ngo_main') 
+                return redirect('/ngo_main')
         else:
-            
+
             return "Invalid email or password", 401
 
         mysql.cursor.close()
@@ -74,26 +74,24 @@ def signup():
         uid = "D" + str(num)
         cursor.execute('INSERT INTO credentials VALUES \
                 (% s, % s, % s)',
-                       (uid, email,pass1))
+                       (uid, email, pass1))
         cursor.execute('INSERT INTO donor VALUES \
                 (% s, % s, % s,%s)',
-                       (uid, name,mobile,address))
-        
+                       (uid, name, mobile, address))
+
         mysql.connection.commit()
         flash('Registration successful!', 'success')
-        return redirect('/login') 
+        return redirect('/login')
     if value == 'ngo':
         file = request.files['image']
-        
-        
+
         filename = file.filename
-        #file_path = os.path.join(os.getcwd(), filename)
+        # file_path = os.path.join(os.getcwd(), filename)
         file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(file_path)
 
         # Store the image, name, and email in the database
         image_data = open(file_path, 'rb').read()
-
 
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT COUNT(*) AS row_count FROM ngo')
@@ -102,18 +100,18 @@ def signup():
         uid = "N" + str(num)
         cursor.execute('INSERT INTO credentials VALUES \
                 (% s, % s, % s)',
-                       (uid, email,pass1))
-        
+                       (uid, email, pass1))
+
         cursor.execute('INSERT INTO ngo VALUES \
                 (% s, % s, % s,%s,%s)',
-                       (uid,name,mobile,address,image_data))
+                       (uid, name, mobile, address, image_data))
         mysql.connection.commit()
-        #os.remove(file_path)
+        # os.remove(file_path)
         flash('Registration successful!', 'success')
-        return redirect('/login') 
-
+        return redirect('/login')
 
     return render_template("signup.html")
+
 
 @app.route('/donor_main', methods=['GET', 'POST'])
 def donor_main():
@@ -123,14 +121,15 @@ def donor_main():
     select_query = "SELECT Uid FROM current_donations WHERE Uid = %s"
     cursor.execute(select_query, (uid_val,))
     result = cursor.fetchall()
-    if(result is not None):
+    if (result is not None):
         select_query1 = "SELECT * FROM current_donations where Uid = %s"
         cursor.execute(select_query1, (uid_val,))
         data = cursor.fetchall()
         da = []
         for d in data:
             da.append(d)
-    return render_template("donor.html",data = da)
+    return render_template("donor.html", data=da)
+
 
 @app.route('/donor_main/donate_food', methods=['GET', 'POST'])
 def donateFood():
@@ -149,15 +148,13 @@ def donateFood():
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('INSERT INTO current_donations VALUES \
                     (%s,% s, % s, % s,%s,%s,%s,%s,%s)',
-                        (val,uid_val,item_name,desc,qty,wt,pdate,edate,status))
+                       (val, uid_val, item_name, desc, qty, wt, pdate, edate, status))
         mysql.connection.commit()
         flash('done', 'success')
         return redirect("/donor_main")
     return render_template("donate_food.html")
 
 
-
-    
 @app.route('/ngo_main', methods=['GET', 'POST'])
 def ngo_main():
     uid = session.get('uid')
@@ -169,30 +166,27 @@ def ngo_main():
 
     return render_template("ngo.html")
 
+
 @app.route('/scheduleEvent', methods=['GET', 'POST'])
 def scheduleEvent():
-    eventTitle = request.form.get("eventTitle")
-    eventDate = request.form.get("eventDate")
-    eventTime = request.form.get("eventTime")
-    contactName = request.form.get("contactName")
-    contactEmail = request.form.get("contactEmail")
-    eventDescription = request.form.get("eventDescription")
-    ngoReg = request.form.get("ngoReg")
+    uid = session.get('uid')
+    uid_val = uid.get('uid')
+    if request.method == 'POST':
+        eventTitle = request.form.get("eventTitle")
+        eventDate = request.form.get("eventDate")
+        eventTime = request.form.get("eventTime")
+        contactName = request.form.get("contactName")
+        contactEmail = request.form.get("contactEmail")
+        eventDescription = request.form.get("eventDescription")
+        ngoReg = request.form.get("ngoReg")
 
-    #uid=session['user_id'] 
-
-    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    #select_query = "SELECT uid FROM credentials WHERE uid = %s"
-    #cursor.execute(select_query, (uid,))
-
-    #result = cursor.fetchone()
-
-    select_query = "INSERT into Event values  (%s,%s,%s,%s,%s,%s,%s)"
-    cursor.execute(select_query, (ngoReg,eventTitle,eventDate,contactName,contactEmail,eventDescription,eventTime))
-    mysql.connection.commit()
-    flash('Event successful!', 'success')
-    return render_template("ngo.html")
-
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        select_query = "INSERT into Event values  (%s,%s,%s,%s,%s,%s,%s)"
+        cursor.execute(select_query, (uid_val, eventTitle, eventDate,
+                       contactName, contactEmail, eventDescription, eventTime))
+        mysql.connection.commit()
+        flash('Event successful!', 'success')
+    return render_template("event.html")
 
 
 @app.route('/logout')
@@ -200,6 +194,7 @@ def logout():
     session.pop('uid', None)
     flash('Logged Out!', 'success')
     return redirect(url_for('login'))
+
 
 if __name__ == '__main__':
     app.run()
