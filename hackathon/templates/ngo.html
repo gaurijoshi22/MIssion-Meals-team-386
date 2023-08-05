@@ -256,7 +256,9 @@ tr:nth-child(odd) {
                 <th>Production Date</th>
                 <th>Expiry Hours</th>
                 <th>Donation Status</th>
+                <th>Address</th>
                 <th>Change Status</th>
+                
               </tr>
             </thead>
             <tbody>
@@ -270,6 +272,7 @@ tr:nth-child(odd) {
                 <td>{{ da.Item_date_of_production }}</td>
                 <td>{{ da.Item_Expiry_hours }}</td>
                 <td>{{ da.Donation_status }}</td>
+                <td>{{ da.address }}</td>
                 <td><button class="remove-button" data-donation-id="{{ da.Donation_id }}">Remove</button></td>
               </tr>
               {% endfor %}
