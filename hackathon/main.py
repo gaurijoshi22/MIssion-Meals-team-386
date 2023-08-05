@@ -8,7 +8,7 @@ app.debug = True  # Enable debug mode
 app.secret_key = 'your secret key'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_PASSWORD'] = 'root123'
 app.config['MYSQL_DB'] = 'food_donation'
 
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
@@ -153,6 +153,42 @@ def donateFood():
         flash('done', 'success')
         return redirect("/donor_main")
     return render_template("donate_food.html")
+
+@app.route('/leaderboard', methods=['GET', 'POST'])
+def leaderboard():
+    # Connect to your MySQL database
+    db = mysql.connector.connect(
+        host="your_host",
+        user="your_username",
+        password="your_password",
+        database="your_database"
+    )
+
+    # Execute the SQL query
+    cursor = db.cursor()
+    query = """
+        SELECT
+            D.name AS DonorName,
+            COUNT(CD.Donation_id) AS DonationCount
+        FROM
+            donor D
+        LEFT JOIN
+            current_donations CD ON D.uid = CD.Uid
+        WHERE
+            CD.Item_date_of_production >= DATE_SUB(NOW(), INTERVAL 1 MONTH)
+        GROUP BY
+            D.uid
+        ORDER BY
+            DonationCount DESC;
+    """
+    cursor.execute(query)
+    leaderboard_data = cursor.fetchall()
+
+    # Close the database connection
+    cursor.close()
+    db.close()
+
+    return render_template('leaderboard.html', leaderboard_data=leaderboard_data)
 
 
 @app.route('/ngo_main', methods=['GET', 'POST'])

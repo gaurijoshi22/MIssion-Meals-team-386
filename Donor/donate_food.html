@@ -66,31 +66,21 @@
     }
 
     /* Navbar styles */
-    
-h1 {
-    text-align: center;
-    padding: 20px;
-}
+    form{
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
 
-table {
-    width: 80%;
-    margin: auto;
-    border-collapse: collapse;
-}
+    label{
+      font-size: 20px;
+      margin-bottom: 3px;
+    }
 
-th, td {
-    padding: 10px;
-    text-align: center;
-}
-
-th {
-    background-color: #333;
-    color: #fff;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
+    input{
+      height:40px;
+      width:1000px;
+      margin-bottom: 10px;
+    }
 
 
     button {
@@ -181,6 +171,11 @@ tr:nth-child(even) {
       border-radius: 50%;
       /* Add some spacing between the logo and text */
     }
+
+    .s{
+      margin-top: 10px;
+      width:1000px;
+    }
   </style>
 </head>
 
@@ -214,24 +209,32 @@ tr:nth-child(even) {
       <!-- Column 2 -->
       <div class="col-md-9">
         <div class="data-container">
-          <h2>Please fill out the Details</h2>
+          <h2>Make A Donation</h2>
           <!-- Data fetched from the database will be displayed here -->
-          <p>Our NGO will contact you shortly after filling the form.</p>
+          
         
         <div class="container">
-            <h1>Donor Leaderboard</h1>
-            <table>
-                <tr>
-                    <th>Donor Name</th>
-                    <th>Donation Count</th>
-                </tr>
-                {% for donor in leaderboard_data %}
-                <tr>
-                    <td>{{ donor[0] }}</td>
-                    <td>{{ donor[1] }}</td>
-                </tr>
-                {% endfor %}
-            </table>
+                <form action="/donor_main/donate_food" method="post">
+                    <label for="ngoName">Item Name:</label><br>
+                    <input type="text"  name="item_name" required><br>
+    
+                    <label for="ngoReg">Item Description:</label><br>
+                    <input type="textarea" name="desc" required><br>
+    
+                    <label for="eventTitle">Quantity:</label><br>
+                    <input type="text"  name="qty" required><br>
+                    
+                    <label for="eventDate">Weight(Kg):</label><br>
+                    <input type="text" name="wt" required><br>
+                    
+                    <label for="eventTime">Production Date:</label><br>
+                    <input type="date" name="pdate" required><br>
+                    
+                    <label for="contactName">Expiry:</label><br>
+                    <input type="date"  name="edate" required><br>
+                    
+                    <button class="s" type="submit" name = "submit">Submit</button><br>
+                </form>
             </div>
         </div>
         </body>
