@@ -175,12 +175,17 @@ def available():
     status = "Available"
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     select_query = "SELECT * FROM current_donations WHERE Donation_status = %s"
+    select_query2 = "SELECT address from donor where uid = (SELECT Uid from current_donations WHERE Donation_status = %s)"
+
     cursor.execute(select_query, (status,))
     data = cursor.fetchall()
+    cursor.execute(select_query2, (status,))
+    add = cursor.fetchall()
     if (data is not None):
         da = []
-        for d in data:
-            da.append(d)
+        for d,a in zip(data,add):
+            tup = d | a
+            da.append(tup)
 
     return render_template("ngo.html",data=da)
 
