@@ -75,21 +75,37 @@ h1 {
 table {
     width: 80%;
     margin: auto;
-    border-collapse: collapse;
+    
+    border:5px black;
 }
 
-th, td {
+th, tr {
     padding: 10px;
     text-align: center;
+    color: #fff;
+    background-color: #000000;
+    border:5px black;
+    font-size: 24px;
 }
 
-th {
-    background-color: #333;
-    color: #fff;
+td {
+    border:5px black;
+    padding:5px;
+    vertical-align: top;
+    text-align: center;
+    background-color: #fff;
+    color: #000000;
+    font: 20px;
+    border-bottom: #000000;
+ 
 }
 
 tr:nth-child(even) {
     background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #bababa;
 }
 
 
@@ -206,35 +222,37 @@ tr:nth-child(even) {
         <a href="/donor_main/donate_food" class="dashboard-link">Donate Food</a>
         <a href="map.html" class="dashboard-link">Ngo Map</a>
         <a href="leaderboard.html" class="dashboard-link">Events</a>
+        <a href="/leaderboard" class="dashboard-link">Leaderboard</a>
         <a href="leaderboard.html" class="dashboard-link">Your Profile</a>
         <a href="/logout" class="dashboard-link">Logout</a>
         <!-- Add more dashboard options as needed -->
       </div>
+      
+      
 
       <!-- Column 2 -->
-      <div class="col-md-9">
-        <div class="data-container">
-          <h2>Please fill out the Details</h2>
-          <!-- Data fetched from the database will be displayed here -->
-          <p>Our NGO will contact you shortly after filling the form.</p>
+   
+
+  <div class="col-md-9">
+    <div class="data-container">
+      <div class="container">
+        <h1>Donor Leaderboard</h1>
+        <table>
+          <tr>
+            <th>Donor Name</th>
+            <th>Donation Count</th>
+          </tr>
+          {% for row in leaderboard_data %}
+          <tr>
+            <td>{{ row.DonorName }}</td>
+            <td>{{ row.DonationCount }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </div>
         
-        <div class="container">
-            <h1>Donor Leaderboard</h1>
-            <table>
-                <tr>
-                    <th>Donor Name</th>
-                    <th>Donation Count</th>
-                </tr>
-                {% for donor in leaderboard_data %}
-                <tr>
-                    <td>{{ donor[0] }}</td>
-                    <td>{{ donor[1] }}</td>
-                </tr>
-                {% endfor %}
-            </table>
-            </div>
-        </div>
-        </body>
 
   <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
