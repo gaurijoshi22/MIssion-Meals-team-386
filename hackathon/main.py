@@ -8,7 +8,7 @@ app.debug = True  # Enable debug mode
 app.secret_key = 'your secret key'
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root123'
+app.config['MYSQL_PASSWORD'] = ''
 app.config['MYSQL_DB'] = 'food_donation'
 
 app.config['UPLOAD_FOLDER'] = 'static/uploads/'
@@ -50,7 +50,7 @@ def login():
 
             return "Invalid email or password", 401
 
-        #mysql.cursor.close()
+        mysql.cursor.close()
         mysql.connection.close()
 
     return render_template("login.html")
@@ -154,35 +154,49 @@ def donateFood():
         return redirect("/donor_main")
     return render_template("donate_food.html")
 
+
 @app.route('/leaderboard', methods=['POST', 'GET'])
 def leaderboard():
     # Connect to your MySQL database
-    
 
     # Execute the SQL query
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    
+
     cursor.execute('SELECT D.name AS DonorName, COUNT(CD.Donation_id) AS DonationCount FROM donor D LEFT JOIN current_donations CD ON D.uid = CD.Uid WHERE CD.Item_date_of_production >= DATE_SUB(NOW(), INTERVAL 1 MONTH) GROUP BY D.name ORDER BY DonationCount DESC')
-    
+
     leaderboard_data = cursor.fetchall()
 
     # Close the database connection
-   
 
     return render_template('leaderboard.html', leaderboard_data=leaderboard_data)
 
-
-@app.route('/ngo_main', methods=['GET', 'POST'])
-def ngo_main():
-    uid = session.get('uid')
-    uid_val = uid.get('uid')
+@app.route('/ngo_main',methods = ['GET','POST'])
+def available():
+    status = "Available"
     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    select_query = "SELECT ngo_name FROM ngo WHERE uid = %s"
-    cursor.execute(select_query, (uid_val,))
-    result = cursor.fetchone()
+    select_query = "SELECT * FROM current_donations WHERE Donation_status = %s"
+    cursor.execute(select_query, (status,))
+    data = cursor.fetchall()
+    if (data is not None):
+        da = []
+        for d in data:
+            da.append(d)
 
-    return render_template("ngo.html")
+    return render_template("ngo.html",data=da)
 
+@app.route('/ngo_main/remove_donation/<int:donation_id>/', methods=['GET'])
+def remove_donation(donation_id):
+    try:
+        donation_id = donation_id
+        if donation_id:
+            cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            #select_query = "DELETE FROM current_donations WHERE Donation_id = %s"
+            select_query = "UPDATE current_donations SET Donation_status = 'Delivered' WHERE Donation_id = %s"
+            cursor.execute(select_query, (donation_id,))
+            mysql.connection.commit()
+            return redirect('/ngo_main')
+    except Exception as e:
+        return jsonify({'message': 'Error', 'error': str(e)}), 500
 
 @app.route('/scheduleEvent', methods=['GET', 'POST'])
 def scheduleEvent():
@@ -205,6 +219,7 @@ def scheduleEvent():
         flash('Event successful!', 'success')
     return render_template("event.html")
 
+
 @app.route('/upcoming')
 def upcoming():
     uid = session.get('uid')
@@ -216,8 +231,9 @@ def upcoming():
         result = cursor.fetchall()
 
         mysql.connection.commit()
-        flash('Event successful!', 'success')
+        #flash('Event successful!', 'success')
     return render_template("upcoming.html",result=result)
+
 
 @app.route('/logout')
 def logout():

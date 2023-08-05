@@ -66,7 +66,46 @@
     }
 
     /* Navbar styles */
+    h1 {
+    text-align: center;
+    padding: 20px;
+}
 
+table {
+    width: 90%;
+    margin: auto;
+    
+    border:5px black;
+}
+
+th, tr {
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    background-color: #000000;
+    border:5px black;
+    font-size: 20px;
+}
+
+td {
+    border:5px black;
+    padding:5px;
+    vertical-align: top;
+    text-align: center;
+    background-color: #fff;
+    color: #000000;
+    font: 18px;
+    border-bottom: #000000;
+ 
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #bababa;
+}
 
 
     button {
@@ -157,14 +196,6 @@
       border-radius: 50%;
       /* Add some spacing between the logo and text */
     }
-    .dashboard-clink {
-      display: block;
-      margin-bottom: 10px;
-      text-decoration: none;
-      color: #ffffff;
-      font-weight: bold;
-      background-color: #000000;
-    }
   </style>
 </head>
 
@@ -194,10 +225,11 @@
       <div class="col-md-3 dashboard-column">
 
         
-        <a href="/donor_main" class="dashboard-clink">Your Donations</a>
+        <a href="/donor_main" class="dashboard-link">Your Donations</a>
         <a href="/donor_main/donate_food" class="dashboard-link">Donate Food</a>
         <a href="map.html" class="dashboard-link">Ngo Map</a>
         <a href="/upcoming" class="dashboard-link">Events</a>
+        <a href="/leaderboard" class="dashboard-link">Leaderboard</a>
         <a href="leaderboard.html" class="dashboard-link">Your Profile</a>
         <a href="/logout" class="dashboard-link">Logout</a>
         <!-- Add more dashboard options as needed -->
@@ -211,30 +243,48 @@
     {% endif %}
     {% endwith %}
       <!-- Column 2 -->
+      
       <div class="col-md-9">
         <div class="data-container">
-          <h2>Data from Database</h2>
-          <!-- Data fetched from the database will be displayed here -->
-          <p>This container can display data fetched from the database.</p>
+          <h1>YOUR DONATIONS</h1>
           {% if data %}
-          {% for da in data %}
-              {{ da.Donation_id }}<br>
-              {{ da.Item_name }}<br>
-              {{ da.Item_description }}<br>
-              {{ da.Item_quantity }}<br>
-              {{ da.Item_weight }}<br>
-              {{ da.Item_date_of_production }}<br>
-              {{ da.Item_Expiry_hours }}<br>
-              {{ da.Donation_status }}<br><br>
-          {% endfor %}
-            {% else %}
+          <table>
+            <thead>
+              <tr>
+                <th>Donation ID</th>
+                <th>Item Name</th>
+                <th>Item Description</th>
+                <th>Item Quantity</th>
+                <th>Item Weight</th>
+                <th>Production Date</th>
+                <th>Expiry Hours</th>
+                <th>Donation Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for da in data %}
+              <tr>
+                <td>{{ da.Donation_id }}</td>
+                <td>{{ da.Item_name }}</td>
+                <td>{{ da.Item_description }}</td>
+                <td>{{ da.Item_quantity }}</td>
+                <td>{{ da.Item_weight }}</td>
+                <td>{{ da.Item_date_of_production }}</td>
+                <td>{{ da.Item_Expiry_hours }}</td>
+                <td>{{ da.Donation_status }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          {% else %}
           <h1>No Data Found</h1>
-          <p>You have not donated in database.</p>
-      {% endif %}
+          <p>You have not donated in the database.</p>
+          {% endif %}
         </div>
       </div>
-    </div>
-  </div>
+      </div>
+      </div>
+      
 
   <!-- Bootstrap JS scripts (requires jQuery and Popper.js) -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
