@@ -236,17 +236,27 @@ button:hover {
 }
 
 .event-name {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    font-size: 22px;
    margin: 0;
 }
 
 .event-date {
-   color: #777;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: right;
+  color: #090909;
    font-size: 16px;
    margin: 0;
 }
-
+.event-time {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   text-align: right;
+   color: #000000;
+   font-size: 16px;
+   margin: 0;
+}
 .event-description {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
    font-size: 18px;
    line-height: 1.5;
    margin: 0;
@@ -306,8 +316,8 @@ h1 {
             
             <div class="event-header">
               <h2 class="event-name">{{ event.eventTitle }}</h2>
-              <p class="event-date">{{ event.eventDate }}</p>
-              <p class="event-date">{{ event.eventTime }}</p>
+              <p class="event-date">{{ event.eventDate }}</p><br>
+              <p class="event-time">{{ event.eventTime }}</p>
           </div>
           
             <p class="event-description">{{ event.eventDescription }}</p>
