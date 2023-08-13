@@ -232,6 +232,9 @@ def upcoming():
         #flash('Event successful!', 'success')
     return render_template("upcoming.html",result=result)
 
+@app.route('/map')
+def map():
+    return render_template("map.html")
 
 @app.route('/logout')
 def logout():

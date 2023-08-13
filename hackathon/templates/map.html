@@ -63,6 +63,8 @@
       padding: 0;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       min-height: 100vh;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Navbar styles */
@@ -196,18 +198,25 @@ tr:nth-child(odd) {
       border-radius: 50%;
       /* Add some spacing between the logo and text */
     }
-  </style>
+    .event-card {
+   
+   background-color: #f9f9f9;
+   /* background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 250, 250, 0.5)), url('charityrun.jpg'); /* Replace 'path-to-your-image.jpg' with the actual path to your image */
+  /* background-size: cover; /* Adjust background sizing */  
+  /* background-repeat: no-repeat;  Prevent the image from repeating */
+ /*  background-position: center;  Center the image */
+   border: 1px solid #ccc;
+   border-radius: 5px;
+   padding: 15px;
+   margin: 10px 0;
+   align-items: center;
+   justify-content: center;
+}
+ </style>
 </head>
 
 <body>
-  {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <script>
-      var message = "{{ messages[0] }}";
-      alert(message);
-    </script>
-    {% endif %}
-    {% endwith %}
+
   <!-- Navbar -->
   <div class="header">
     <a href="" class="i"><img src="{{ url_for('static', filename='images/logo.jpg') }}" width="100" height="90"></a>
@@ -234,52 +243,19 @@ tr:nth-child(odd) {
         <a href="/logout" class="dashboard-link">Logout</a>
         <!-- Add more dashboard options as needed -->
       </div>
-      {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <script>
-      var message = "{{ messages[0] }}";
-      alert(message);
-    </script>
-    {% endif %}
-    {% endwith %}
+      
       <!-- Column 2 -->
       
       <div class="col-md-9">
         <div class="data-container">
-          <h1>YOUR DONATIONS</h1>
-          {% if data %}
-          <table>
-            <thead>
-              <tr>
-                <th>Donation ID</th>
-                <th>Item Name</th>
-                <th>Item Description</th>
-                <th>Item Quantity</th>
-                <th>Item Weight</th>
-                <th>Production Date</th>
-                <th>Expiry Hours</th>
-                <th>Donation Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for da in data %}
-              <tr>
-                <td>{{ da.Donation_id }}</td>
-                <td>{{ da.Item_name }}</td>
-                <td>{{ da.Item_description }}</td>
-                <td>{{ da.Item_quantity }}</td>
-                <td>{{ da.Item_weight }}</td>
-                <td>{{ da.Item_date_of_production }}</td>
-                <td>{{ da.Item_Expiry_hours }}</td>
-                <td>{{ da.Donation_status }}</td>
-              </tr>
-              {% endfor %}
-            </tbody>
-          </table>
-          {% else %}
-          <h1>No Data Found</h1>
-          <p>You have not donated in the database.</p>
-          {% endif %}
+          
+          <div class="container">
+            
+            
+              
+              <div class="event-card"><h1>NEARBY NGOs</h1><img src="{{ url_for('static', filename='images/map.png') }}" width="800" height="700" style="display: block; margin: 0 auto;" >
+                </div>
+          
         </div>
       </div>
       </div>
